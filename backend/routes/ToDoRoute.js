@@ -1,10 +1,9 @@
 const { Router } = require("express");
+const { getToDo } = require("../controllers/ToDoController");
 
 const router = Router();
 
-// GET: '/' - returns an hello world message
-router.get("/", (req, res) => {
-  res.json({ message: "Hello World" });
-});
+// GET Method using root route would return all ToDo items
+router.get('/', getToDo);
 
 module.exports = router;
