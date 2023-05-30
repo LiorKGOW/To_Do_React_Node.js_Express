@@ -7,7 +7,7 @@ const routes = require("./routes/ToDoRoute");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const SERVER_PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
@@ -19,6 +19,6 @@ mongoose
 
 app.use(routes);
 
-app.listen(PORT, () =>
-  console.log(`Server is up and listening on port: ${PORT}`)
+app.listen(SERVER_PORT, () =>
+  console.log(`Server is up and listening on port: ${SERVER_PORT}`)
 );

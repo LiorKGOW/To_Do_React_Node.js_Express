@@ -1,8 +1,13 @@
+import React, { useEffect, useState } from "react";
 import ToDo from "./components/ToDo";
-import { mockToDos } from "./mockData";
+import { getAllTodos } from "./utils/HandleApi";
 
 function App() {
-  const { data } = mockToDos;
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    getAllTodos(setTodos);
+  }, []);
 
   return (
     <div className="App">
@@ -14,8 +19,8 @@ function App() {
         </div>
 
         <div className="list">
-          {data.map((todo) => (
-            <ToDo text={todo.text} />
+          {todos.map((todo) => (
+            <ToDo id={todo._id} key={todo._id} text={todo.text} />
           ))}
         </div>
       </div>
