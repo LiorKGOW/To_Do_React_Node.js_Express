@@ -60,3 +60,10 @@ input{
   cursor: pointer;
   font-size: 20px;
 }
+
+.add-btn{
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+}
