@@ -5,8 +5,8 @@ This is a ToDo application written in JavaScript, React, Node.js and Express usi
 
 
 ## Prerequisites
-* Node.js version 18.12.1 (or higher)
-
+* Node.js version 18 (or higher)
+* npm version 9 (or higher)
 
 ## How To Run This Application
 1. Clone this repository to your local machine, using the following command:
