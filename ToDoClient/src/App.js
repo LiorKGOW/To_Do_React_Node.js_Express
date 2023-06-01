@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ToDo from "./components/ToDo";
-import { getAllTodos } from "./utils/HandleApi";
+import { getAllTodos } from "./utils/HandleToDoApiRequests";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>Lior's ToDo App</h1>
+        <h1>Lior's ToDo List</h1>
 
         <div className="top">
           <input type="text" placeholder="Enter a new task here" />

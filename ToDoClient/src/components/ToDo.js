@@ -3,9 +3,9 @@ import { BiEdit } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 
 const ToDo = (props) => {
-  const { text, updateMode, deleteToDo } = props;
+  const { text, _id, updateMode, deleteToDo } = props;
   return (
-    <div className="todo">
+    <div id={_id} className="todo">
       <div className="text">{text}</div>
       <div className="icons">
         <BiEdit className='icon' onClick={updateMode} />
