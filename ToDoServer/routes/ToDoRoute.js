@@ -3,11 +3,11 @@ const { getToDo, saveToDo, updateToDo, deleteToDo } = require("../controllers/To
 
 const router = Router();
 
-// GET Method using '/todos' root route would return all ToDo items
+// GET Method using '/todos' route would return all ToDo items
 router.get('/todos', getToDo);
 
-// POST Method using '/save' route would create a new ToDo item and save it to the database
-router.post('/save', saveToDo);
+// POST Method using '/todos' route would create a new ToDo item and save it to the database
+router.post('/todos', saveToDo);
 
 // PUT Method using '/update' route would update an existing ToDo item and save it to the database
 router.put('/update', updateToDo);
