@@ -14,22 +14,23 @@ const getAllTodos = async (setTodos) => {
       );
       console.log(todoTexts);
     }
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 };
 
 const addNewToDo = async ( text, setText, setTodos ) => {
-  const response = await axios
-    .post(`${BASE_URL}/todos`, { text })
-    .catch((error) => {
-      console.log(error);
-    });
+  try {
+    const response = await axios.post(`${BASE_URL}/todos`, { text });
 
-  if (response.data) {
-    console.log(`Added a new Todo item with the following text: "${text}"`);
-    setText("");
-    getAllTodos(setTodos);
+    if (response.data) {
+      console.log(`Added a new Todo item with the following text: "${text}"`);
+      setText("");
+      getAllTodos(setTodos);
+    }
+  }
+  catch (error){
+    console.log(error);
   }
 };
 

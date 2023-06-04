@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ToDo from "./components/ToDo";
-import { getAllTodos, addNewToDo } from "./utils/HandleToDoApiRequests";
+import NoTasksToPresent from "./components/NoTasksToPresent";
+import { getAllTodos, addNewToDo } from "./utils/ServerRequestHandler";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -22,15 +23,22 @@ function App() {
             value={text}
             onChange={(event) => setText(event.target.value)}
           />
-          <div className="add-btn" onClick={() => addNewToDo(text, setText, setTodos)}>
+          <div
+            className="add-btn"
+            onClick={() => addNewToDo(text, setText, setTodos)}
+          >
             Add
           </div>
         </div>
 
         <div className="list">
-          {todos.map((todo) => (
-            <ToDo id={todo._id} key={todo._id} text={todo.text} />
-          ))}
+          {todos.length > 0 ? (
+            todos.map((todo) => (
+              <ToDo id={todo._id} key={todo._id} text={todo.text} />
+            ))
+          ) : (
+            <NoTasksToPresent />
+          )}
         </div>
       </div>
     </div>
