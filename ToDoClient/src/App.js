@@ -5,6 +5,7 @@ import {
   getAllTodos,
   addNewToDo,
   updateToDo,
+  deleteToDo, 
 } from "./utils/ServerRequestHandler";
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
                 key={_id}
                 text={text}
                 enterUpdateMode={() => enterUpdateMode(_id, text)}
+                deleteToDo={() => deleteToDo(_id, setTodos)}
               />
             ))
           ) : (

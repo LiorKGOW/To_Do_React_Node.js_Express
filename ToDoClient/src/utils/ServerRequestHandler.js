@@ -5,7 +5,7 @@ const getAllTodos = async (setTodos) => {
   try {
     const response = await axios.get(`${BASE_URL}/todos`);
 
-    if (response.data) {
+    if (response.status === 200) {
       setTodos(response.data);
 
       const todoTexts = response.data.map((todo) => todo.text);
@@ -23,7 +23,7 @@ const addNewToDo = async (text, setText, setTodos) => {
   try {
     const response = await axios.post(`${BASE_URL}/todos`, { text });
 
-    if (response.data) {
+    if (response.status === 200) {
       console.log(`Added a new Todo item with the following text: "${text}"`);
       setText("");
       getAllTodos(setTodos);
@@ -33,23 +33,35 @@ const addNewToDo = async (text, setText, setTodos) => {
   }
 };
 
-const updateToDo = async (toDoId, text, setTodo, setText, setIsUpdating) => {
+const updateToDo = async (toDoId, text, setTodos, setText, setIsUpdating) => {
   try {
     const response = await axios.put(`${BASE_URL}/todos`, {
       _id: toDoId,
       text,
     });
 
-    if(response.data){
+    if (response.status === 200) {
       console.log("ToDo's message updated successfully !");
     }
 
     setText("");
     setIsUpdating(false);
-    getAllTodos(setTodo);
+    getAllTodos(setTodos);
   } catch (error) {
     console.log(error);
   }
 };
 
-export { getAllTodos, addNewToDo, updateToDo };
+const deleteToDo = async (_id, setTodos) => {
+  try {
+    const response = await axios.delete(`${BASE_URL}/todos/${_id}`);
+    if (response.status === 200) {
+      console.log(response.data);
+    }
+    getAllTodos(setTodos);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { getAllTodos, addNewToDo, updateToDo, deleteToDo };
