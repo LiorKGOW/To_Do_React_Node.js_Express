@@ -68,6 +68,13 @@ input{
   cursor: pointer;
 }
 
+.update-btn{
+  background-color: #008;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+}
+
 .empty-state{
   padding: 1.5rem 3rem;
 }

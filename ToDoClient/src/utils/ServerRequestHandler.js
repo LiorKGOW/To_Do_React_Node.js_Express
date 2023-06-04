@@ -19,7 +19,7 @@ const getAllTodos = async (setTodos) => {
   }
 };
 
-const addNewToDo = async ( text, setText, setTodos ) => {
+const addNewToDo = async (text, setText, setTodos) => {
   try {
     const response = await axios.post(`${BASE_URL}/todos`, { text });
 
@@ -28,10 +28,28 @@ const addNewToDo = async ( text, setText, setTodos ) => {
       setText("");
       getAllTodos(setTodos);
     }
-  }
-  catch (error){
+  } catch (error) {
     console.log(error);
   }
 };
 
-export { getAllTodos, addNewToDo };
+const updateToDo = async (toDoId, text, setTodo, setText, setIsUpdating) => {
+  try {
+    const response = await axios.put(`${BASE_URL}/todos`, {
+      _id: toDoId,
+      text,
+    });
+
+    if(response.data){
+      console.log("ToDo's message updated successfully !");
+    }
+
+    setText("");
+    setIsUpdating(false);
+    getAllTodos(setTodo);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { getAllTodos, addNewToDo, updateToDo };
