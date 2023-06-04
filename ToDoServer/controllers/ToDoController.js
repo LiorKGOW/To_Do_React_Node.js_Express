@@ -2,7 +2,7 @@ const ToDoModel = require("../models/ToDoModel");
 
 module.exports.getToDo = async (req, res) => {
   const toDo = await ToDoModel.find();
-  res.send(toDo);
+  res.status(200).send(toDo);
 };
 
 module.exports.saveToDo = async (req, res) => {
@@ -10,7 +10,7 @@ module.exports.saveToDo = async (req, res) => {
 
   ToDoModel.create({ text }).then((data) => {
     console.log(`${data} was added to the database`);
-    res.send(data);
+    res.status(200).send(data);
   });
 };
 
@@ -21,7 +21,7 @@ module.exports.updateToDo = async (req, res) => {
       console.log(`Todo ${data} was updated with "${text}" as it's new text`);
       const newData = data;
       newData.text = text;
-      res.send(newData);
+      res.status(200).send(newData);
     })
     .catch((err) => {
       console.log(err);
@@ -29,18 +29,21 @@ module.exports.updateToDo = async (req, res) => {
 };
 
 module.exports.deleteToDo = async (req, res) => {
-  const { _id } = req.body;
-  if (ToDoModel.findById(_id) != null) {
-    ToDoModel.findByIdAndDelete(_id)
+  const { id } = req.params;
+
+  console.log(`id : ${id}`);
+
+  if (ToDoModel.findById(id) != null) {
+    ToDoModel.findByIdAndDelete(id)
       .then(() => {
-        console.log(`Todo with ${_id} was deleted from the database`);
-        res.send(`Todo with the id: ${_id} was deleted from the database`);
+        console.log(`ToDo with ${id} was deleted from the database`);
+        res.status(200).send(`ToDo with the id: ${id} was deleted successfully !`);
       })
       .catch((err) => {
         console.log(err);
       });
   } else {
-    console.log(`Todo with ${_id} was not found in the database`);
-    res.send(`Todo with the id: ${_id} was not found in the database`);
+    console.log(`ToDo with ${id} was not found in the database`);
+    res.status(400).send(`ToDo with the id: ${id} was not found in the database`);
   }
 };
