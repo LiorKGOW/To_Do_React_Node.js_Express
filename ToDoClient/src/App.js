@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from "react";
 import ToDo from "./components/ToDo";
 import NoTasksToPresent from "./components/NoTasksToPresent";
-import { getAllTodos, addNewToDo } from "./utils/ServerRequestHandler";
+import {
+  getAllTodos,
+  addNewToDo,
+  updateToDo,
+} from "./utils/ServerRequestHandler";
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [text, setText] = useState("");
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [updatedTodoId, setUpdatedTodoId] = useState("");
 
   useEffect(() => {
     getAllTodos(setTodos);
   }, []);
+
+  const enterUpdateMode = (_id, text) => {
+    setIsUpdating(true);
+    setText(text);
+    setUpdatedTodoId(_id);
+  };
 
   return (
     <div className="App">
@@ -23,18 +35,32 @@ function App() {
             value={text}
             onChange={(event) => setText(event.target.value)}
           />
-          <div
-            className="add-btn"
-            onClick={() => addNewToDo(text, setText, setTodos)}
-          >
-            Add
-          </div>
+          {isUpdating ? (
+            <div
+              className="update-btn"
+              onClick={() => updateToDo(updatedTodoId, text, setTodos, setText, setIsUpdating)}
+            >
+              Update
+            </div>
+          ) : (
+            <div
+              className="add-btn"
+              onClick={() => addNewToDo(text, setText, setTodos)}
+            >
+              Add
+            </div>
+          )}
         </div>
 
         <div className="list">
           {todos.length > 0 ? (
-            todos.map((todo) => (
-              <ToDo id={todo._id} key={todo._id} text={todo.text} />
+            todos.map(({_id, text}) => (
+              <ToDo
+                id={_id}
+                key={_id}
+                text={text}
+                enterUpdateMode={() => enterUpdateMode(_id, text)}
+              />
             ))
           ) : (
             <NoTasksToPresent />

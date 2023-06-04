@@ -9,8 +9,8 @@ router.get('/todos', getToDo);
 // POST Method using '/todos' route would create a new ToDo item and save it to the database
 router.post('/todos', saveToDo);
 
-// PUT Method using '/update' route would update an existing ToDo item and save it to the database
-router.put('/update', updateToDo);
+// PUT Method using '/todos' route would update an existing ToDo item and save it to the database
+router.put('/todos', updateToDo);
 
 // POST Method using '/delete' route would delete the ToDo item with the given id from the database
 router.post('/delete', deleteToDo);
