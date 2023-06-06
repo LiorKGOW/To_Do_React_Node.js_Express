@@ -1,8 +1,10 @@
-# Lior's ToDo Application
+# Lior's ToDo Application - A Full Stack Application to Manage Tasks
 
 ## Project Description
-This is a ToDo application written in JavaScript, React, Node.js and Express using MongoDB as a database
-Supported actions : Create, Update and Delete
+- Client written in React.js using hooks to manage components' state & Axios to handle HTTP requests and responses
+- Server written in JavaScript using Express, Node.js & MongoDB as the database
+- Supporting Create, Update & Delete operations 
+- Attaching Postman collection checking the API Server (can be found in the ToDoServer directory)
 
 ## How To Run This Application
 1. First, insure you have the [Required Prerequisites](https://github.com/LiorKGOW/To_Do_React_Node.js_Express#prerequisites) before continuing to the next step (can be found at the bottom of this readme)
@@ -119,6 +121,7 @@ The new ToDo item was also added in the DB in MongoDB:
 *Changing the Server side's port in this file: [ToDoServer.js](https://github.com/LiorKGOW/To_Do_React_Node.js_Express/blob/main/ToDoServer/ToDoServer.js) (line 10)*
 
 ### What Would I Add Next
+* Find a way to run the application with a single CLI window running both the server and the client (maybe [Lerna](https://lerna.js.org/))
 * `status state` attribute of the ToDos, which would indicate the state of the ToDo "Done" / "In Progress" / "ToDo" the users can also change in the UI 
 * `Read action` to inspect a specific ToDo in an open modal feature or maybe by using React Router
 * `Drag & Drop` action to change the order of the ToDos in the UI
