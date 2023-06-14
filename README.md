@@ -4,7 +4,7 @@
 - Client written in React.js using hooks to manage components' state & Axios to handle HTTP requests and responses
 - Server written in JavaScript using Express, Node.js & MongoDB as the database
 - Supporting Create, Update & Delete operations 
-- Attaching Postman collection checking the API Server (can be found in the ToDoServer directory)
+- Attaching Postman collection checking the API Server (can be found in the "ToDoServer" directory under "Postman Requests Collection")
 
 ## How To Run This Application
 1. First, insure you have the [Required Prerequisites](https://github.com/LiorKGOW/To_Do_React_Node.js_Express#prerequisites) before continuing to the next step (can be found at the bottom of this readme)
@@ -56,7 +56,7 @@ Keep this CLI window open! The server must be running in order to use the ToDo C
 
 ---
 
-## Some Screenshots of the ToDo Application:
+## Some Screenshots of the Application:
 The initial state of the App, presenting the available data that is currently stored in the DB in MongoDB:
 ![The initial state of the App, presenting the data that is currently available from the DB in MongoDB](https://github.com/LiorKGOW/To_Do_React_Node.js_Express/assets/93318917/254786b4-9f14-45a0-ba4a-a05a62955bd5)
 
@@ -66,7 +66,7 @@ The initial state of the DB in MongoDB:
 ---
 
 ### This Application Supports Several Actions
-#### 1. Updating an Excisting ToDo Item
+#### 1. Updating Excisting ToDo Items In The ToDo List
 Pressing the update icon (the icon of the pencil on the left) of the second ToDo item enters an update mode of this ToDo item:
 ![Pressing the update icon of the second ToDo item enters an update mode of this ToDo item](https://github.com/LiorKGOW/To_Do_React_Node.js_Express/assets/93318917/e6a8cbfc-aead-445b-9f18-a84d41e7b7aa)
 
@@ -79,14 +79,14 @@ Then, after pressing the `Update` button, the application updates this ToDo item
 The title of this ToDo item was also changed in the DB in MongoDB:
 ![The title of the ToDo item was changed in the DB in MongoDB](https://github.com/LiorKGOW/To_Do_React_Node.js_Express/assets/93318917/33fd650f-6431-4075-93ff-6184fbc1ee9d)
 
-#### 2. Deleting ToDo Items From the ToDo List
+#### 2. Deleting ToDo Items
 Clicking on the delete icon (the trash can icon on the right) of the second ToDo item deletes this ToDo item from the ToDo list:
 ![Clicking on the delete icon of the second ToDo item deletes this ToDo item from the ToDo list](https://github.com/LiorKGOW/To_Do_React_Node.js_Express/assets/93318917/5a37ce17-02bc-4957-8825-8cc34aea02b9)
 
 The second ToDo item is also deleted from the DB in MongoDB:
 ![The second ToDo item is also deleted from the DB in MongoDB](https://github.com/LiorKGOW/To_Do_React_Node.js_Express/assets/93318917/18f66d2d-f48c-42c4-97db-94c426c56550)
 
-#### 3. Adding a New ToDo Item 
+#### 3. Adding New ToDo Items
 First, enter a requested text in the text input box:
 ![After entering a requested text in the text input box and pressing the Add button, a new Todo item is created in the UI](https://github.com/LiorKGOW/To_Do_React_Node.js_Express/assets/93318917/e134be47-7c31-44e3-a956-b643eebd6fea)
 
